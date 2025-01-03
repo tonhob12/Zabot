@@ -1,0 +1,1 @@
+main.py is the bot, execute this with python and be happy (position.py is for detect your mouse position using python)
