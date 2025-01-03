@@ -18,7 +18,10 @@ label3 = ttk.Label(root, text="agora, digite a mensagem que deseja enviar", font
 label3.pack()
 Imp2 = ttk.Entry(root)
 Imp2.pack()
+C = False
 def data():
+    global C
+    C = True
     global cont 
     cont = Imp.get()
     global M
@@ -31,19 +34,20 @@ botao.pack()
 botao = ttk.Button(root, text="Clique aqui para finalizar o envio", command=root.destroy)
 botao.pack()
 root.mainloop()
-pg.press('win')
-pg.write('whatsApp', interval=0.08)
-pg.press('enter')
-#pesquisa o contato
-time.sleep(2.8)
-pg.hotkey('ctrl' + 'F')
-pg.write(cont)
-#seleciona o contato
-pg.press('down')
-pg.press('enter')
-#manda a mensagem
-time.sleep(2)
-pg.click(x=1100, y=950)
-pg.write(M, interval=0.15)
-pg.press('enter')
+if C == True:
+    pg.press('win')
+    pg.write('whatsApp', interval=0.08)
+    pg.press('enter')
+    #pesquisa o contato
+    time.sleep(2.8)
+    pg.hotkey('ctrl' + 'F')
+    pg.write(cont)
+    #seleciona o contato
+    pg.press('down')
+    pg.press('enter')
+    #manda a mensagem
+    time.sleep(2)
+    pg.click(x=1100, y=950)
+    pg.write(M, interval=0.15)
+    pg.press('enter')
 
